@@ -33,4 +33,12 @@ export class PhotoService {
     return this.http.delete(`${this.url}/photo/${id}`);
   }
 
+  updatePhoto(id: string, title: string, description: string, photo: File) {
+    const fd = new FormData();
+    fd.append('title', title);
+    fd.append('description', description);
+    fd.append('image', photo);
+    return this.http.put(`${this.url}/photo/${id}`, fd);
+  }
+
 }

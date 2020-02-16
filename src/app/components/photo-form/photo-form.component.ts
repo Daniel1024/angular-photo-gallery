@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../../services/photo.service';
 import { Router } from '@angular/router';
-
-interface HtmlInputEvent extends Event {
-  target: HTMLInputElement & EventTarget;
-}
+import { HtmlInputEvent } from '../../interfaces/HtmlInputEvent';
 
 @Component({
   selector: 'app-photo-form',

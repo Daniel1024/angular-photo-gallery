@@ -6,19 +6,20 @@
     <div class="row">
         <div class="col-md-5">
             <div class="card">
-                <img [src]="urlPhoto" [alt]="photo.title" class="img-fluid">
+                <input #photoInput (change)="onPhotoSelected($event)" class="d-none" type="file">
+                <img (click)="photoInput.click()" [alt]="photo.title" [src]="photoSelected" class="img-fluid">
             </div>
         </div>
         <div class="col-md-7">
             <div class="card">
-                <form class="card-body">
+                <form class="card-body" (submit)="updatePhoto(title, description)">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Photo's title" [value]="photo.title">
+                        <input #title type="text" class="form-control" placeholder="Photo's title" [value]="photo.title">
                     </div>
                     <div class="form-group">
-                        <textarea rows="2" class="form-control" placeholder="Photo's Description" [value]="photo.description"></textarea>
+                        <textarea #description rows="2" class="form-control" placeholder="Photo's Description" [value]="photo.description"></textarea>
                     </div>
-                    <button class="btn btn-primary btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                         Update
                     </button>
                 </form>
